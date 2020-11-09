@@ -65,8 +65,7 @@ Requirements: Python 3.7 or later.
 
 1. Install this application with pip:
     ```bash
-    python3 -m pip install --src ~/soft -e git+https://github.com/TomasPP/google-api-utils
-   #egg=subscriptions_filter
+    pip3 install --src ~/soft -e git+https://github.com/TomasPP/google-api-utils#egg=google_api_utils
     ```
 2. Create a project through the [Google Cloud Console](https://console.cloud.google.com/).
 3. Enable your project to use the YouTube Data API via the [APIs &
@@ -77,7 +76,4 @@ Requirements: Python 3.7 or later.
 5. Download the OAuth client secrets JSON file from the
    [Credentials](https://console.cloud.google.com/apis/credentials) page and
    rename it to `client_secrets.json`. 
-5. Open [your youtube subscriptions page](https://www.youtube.com/feed/subscriptions) 
-   and download cookies.txt file using extension 
-   [like](https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=en).  
 
