@@ -62,9 +62,13 @@ def upload_photo(service, credentials, album_id, photo_file, first_in_album):
     if album_id and first_in_album:
         request_body['albumPosition'] = {'position': 'FIRST_IN_ALBUM'}
 
-    upload_response = service.mediaItems().batchCreate(body=request_body).execute()
-    print('response')
-    print(upload_response)
+    response = service.mediaItems().batchCreate(body=request_body).execute()
+
+    print('response', response)
+    # response_str = str(response)
+    # print('response', response_str)
+    # success = response_str.find("'Success'") != 1
+    # return success
 
 
 if __name__ == '__main__':

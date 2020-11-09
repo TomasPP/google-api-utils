@@ -1,4 +1,7 @@
 import os
+import json
+
+from contextlib import suppress
 
 
 def read_file_into_str(file_name):
@@ -19,6 +22,14 @@ def exit_if_true(condition, message, prefix='ERROR: '):
         exit(0)
 
 
+def main():
+    r = json.loads(read_file_into_str('temp.json'))
+    # noinspection PyUnusedLocal
+    status = None
+    with suppress(KeyError, IndexError):
+        status = r['newMediaItemResults'][0]['status']['message']
+    print(status)
+
+
 if __name__ == "__main__":
-    pass
-    # main()
+    main()
