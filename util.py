@@ -23,6 +23,10 @@ def exit_if_true(condition, message, prefix='ERROR: '):
 
 
 def main():
+    test_json()
+
+
+def test_json():
     r = json.loads(read_file_into_str('temp.json'))
     # noinspection PyUnusedLocal
     status = None

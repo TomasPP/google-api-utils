@@ -3,6 +3,7 @@
 
 import requests
 import argparse
+import os
 import auth_util
 
 
@@ -51,7 +52,8 @@ def main():
 
 def upload_photo(service, credentials, album_id, photo_file, first_in_album):
     upload_tokens = []
-    response = upload_image(photo_file, photo_file, credentials)
+    file_name = os.path.basename(photo_file)
+    response = upload_image(photo_file, file_name, credentials)
 
     upload_tokens.append(response.content.decode())
     new_media_items = [{'simpleMediaItem': {'uploadToken': token}} for token in upload_tokens]
