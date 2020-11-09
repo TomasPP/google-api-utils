@@ -1,4 +1,4 @@
-# Adapted from https://learndataanalysis.org/upload-media-items-google-photos-api-and-python-part-4/
+# Code Adapted from https://learndataanalysis.org/upload-media-items-google-photos-api-and-python-part-4/
 # and https://github.com/eshmu/gphotos-upload
 
 import requests
@@ -7,11 +7,11 @@ import auth_util
 
 
 def parse_args(arg_input=None):
-    parser = argparse.ArgumentParser(description='Upload photos to Google Photos.')
+    parser = argparse.ArgumentParser(description='Upload photos using Google Photos API.')
     parser.add_argument("--secrets", default=CLIENT_SECRETS_JSON, required=False,
-                        help="Google API OAuth secrets file for working with Google docs")
+                        help="Google API OAuth client secrets file path.")
     parser.add_argument('--album_id', required=False,
-                        help='Google Photos Album Id')
+                        help='Google Photos Album Id. If specified photos are added to this album.')
     parser.add_argument("--first-in-album", required=False, action="store_true",
                         help="Add each photo at index 0 in album.")
     parser.add_argument('photos', metavar='photo', type=str, nargs='*',

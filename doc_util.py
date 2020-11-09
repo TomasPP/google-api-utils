@@ -16,14 +16,14 @@ from google.auth.transport.requests import Request
 
 
 def parse_args(args):
-    arg_parser = ArgumentParser(description="Append lines to Google doc.")
+    arg_parser = ArgumentParser(description='Append lines to Google Doc.')
     arg_parser.add_argument(
-        "--secrets", default=CLIENT_SECRETS_JSON, required=False,
-        help="Google API OAuth secrets file for working with Google docs"
+        '--secrets', dest='secrets_file', default=CLIENT_SECRETS_JSON, required=False,
+        help='Google API OAuth client secrets file path'
     )
 
     arg_parser.add_argument(
-        "--mode", default='append', required=False, choices=['append', 'insert', 'dump'],
+        '--mode', default='append', required=False, choices=['append', 'insert', 'dump'],
         help="'append' - lines at the end of doc. "
              "'insert' - lines at the beginning of file. "
              "'dump' - do nothing just retrieve google doc content and print it to doc.json file."
@@ -36,23 +36,23 @@ def parse_args(args):
                             nargs='?')
 
     arg_parser.add_argument(
-        "--max-lines", default='1000000', type=int, required=False,
-        help="if doc has more values "
+        '--max-lines', default='1000000', type=int, required=False,
+        help='max line'
     )
 
     # arg_parser.add_argument(
-    #     "--test-mode",
-    #     action="store_true",
-    #     help="testing mode"
+    #     '--test-mode',
+    #     action='store_true',
+    #     help='testing mode'
     # )
 
-    arg_parser.add_argument("document_id", help="google doc id")
+    arg_parser.add_argument('document_id', help='Google Doc Id')
 
     parsed = arg_parser.parse_args(args)
     return parsed
 
 
-CLIENT_SECRETS_JSON = "client_secrets.json"
+CLIENT_SECRETS_JSON = 'client_secrets.json'
 # If modifying these scopes, delete credentials pickle file.
 SCOPES = ['https://www.googleapis.com/auth/documents']
 
@@ -83,12 +83,12 @@ Test string2
     lines = args.infile.read()
     # print(lines)
 
-    lines = "\n".join([line.rstrip() for line in lines.splitlines() if line.strip()])  # strip empty lines and last \n
+    lines = '\n'.join([line.rstrip() for line in lines.splitlines() if line.strip()])  # strip empty lines and last \n
     new_line_count = len(lines.splitlines())
     print('new_line_count', new_line_count)
     util.exit_if_true(len(lines) == 0, 'no input lines in --infile or stdin')
 
-    service = auth_util.get_authenticated_service(args.secrets, 'docs', 'v1', SCOPES)
+    service = auth_util.get_authenticated_service(args.secrets_file, 'docs', 'v1', SCOPES)
 
     # Retrieve google doc content
     document = service.documents().get(documentId=document_id).execute()
