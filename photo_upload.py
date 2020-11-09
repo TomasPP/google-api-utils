@@ -8,12 +8,12 @@ import auth_util
 
 def parse_args(arg_input=None):
     parser = argparse.ArgumentParser(description='Upload photos using Google Photos API.')
-    parser.add_argument("--secrets", default=CLIENT_SECRETS_JSON, required=False,
-                        help="Google API OAuth client secrets file path.")
+    parser.add_argument('--secrets', default=CLIENT_SECRETS_JSON, required=False,
+                        help='Google API OAuth client secrets file path.')
     parser.add_argument('--album_id', required=False,
                         help='Google Photos Album Id. If specified photos are added to this album.')
-    parser.add_argument("--first-in-album", required=False, action="store_true",
-                        help="Add each photo at index 0 in album.")
+    parser.add_argument('--first-in-album', required=False, action='store_true',
+                        help='Add each photo at index 0 in album.')
     parser.add_argument('photos', metavar='photo', type=str, nargs='*',
                         help='file names of photos to upload')
     return parser.parse_args(arg_input)
@@ -34,7 +34,7 @@ def upload_image(image_path, upload_file_name, token):
     return response
 
 
-CLIENT_SECRETS_JSON = "client_secrets.json"
+CLIENT_SECRETS_JSON = 'client_secrets.json'
 SCOPES = ['https://www.googleapis.com/auth/photoslibrary',
           'https://www.googleapis.com/auth/photoslibrary.sharing']
 

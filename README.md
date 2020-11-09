@@ -1,4 +1,4 @@
-Contains command line utils for some Google API. 
+Command line utils for some Google API's. 
 
 ```
 usage: photo_upload.py [-h] [--secrets SECRETS] [--album_id ALBUM_ID]
