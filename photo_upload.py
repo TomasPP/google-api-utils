@@ -14,7 +14,8 @@ def parse_args(arg_input=None):
     parser.add_argument('--album_id', required=False,
                         help='Google Photos Album Id. If specified photos are added to this album.')
     parser.add_argument('--first-in-album', required=False, action='store_true',
-                        help='Add each photo at index 0 in album.')
+                        help='Add each photo at index 0 in album. Known issue: '
+                             'This does not work for shared albums. For some reason Google API ignores this flag.')
     parser.add_argument('photos', metavar='photo', type=str, nargs='*',
                         help='file names of photos to upload')
     return parser.parse_args(arg_input)
