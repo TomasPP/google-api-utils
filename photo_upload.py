@@ -63,6 +63,7 @@ def upload_photo(service, credentials, album_id, photo_file, first_in_album):
     request_body['newMediaItems'] = new_media_items
     if album_id and first_in_album:
         request_body['albumPosition'] = {'position': 'FIRST_IN_ALBUM'}
+    print('request', request_body)
 
     response = service.mediaItems().batchCreate(body=request_body).execute()
 
