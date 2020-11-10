@@ -5,15 +5,15 @@ import auth_util
 def parse_args(arg_input=None):
     parser = argparse.ArgumentParser(description='Create album, list albums using Google Photos API.')
     parser.add_argument('--secrets', dest='secrets_file', default=CLIENT_SECRETS_JSON, required=False,
-                        help='Google API OAuth client secrets file path')
+                        help='Google API OAuth client secrets file path.')
     parser.add_argument('--create-album', '-c', dest='album_name', required=False,
-                        help='title of album to create')
+                        help='Creates album with specified album name.')
     parser.add_argument('--share-album', '-s', dest='share_album_id', required=False,
                         help='Enables sharing for album with specified album id.')
     parser.add_argument('--list-albums', '-l', required=False, action='store_true',
                         help='Retrieves and prints list of albums visible for credentials.')
     parser.add_argument('--create-shareable', '-cs', required=False, action='store_true',
-                        help='Enable sharing of created album.')
+                        help='Enable sharing after album is created.')
 
     return parser.parse_args(arg_input)
 

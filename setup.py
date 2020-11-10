@@ -13,6 +13,7 @@ setup(
                       "google-api-python-client>=1.8.2,<=2.0",
                       "google-auth-oauthlib>=0.4.1,<=1.0",
                       "requests>=2.24.0,<=3.0",
+                      "gspread>=3.6.0,<=4.0",
                       "google-auth-httplib2>=0.0.3,<1"
                       ],
     # entry_points={"console_scripts": ["test=test:main"]},
