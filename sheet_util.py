@@ -10,7 +10,7 @@ CLIENT_SECRETS_JSON = 'client_secrets_sheet.json'
 def parse_args(arg_input=None):
     parser = argparse.ArgumentParser(description='Add row to Google Sheet using Google Sheets API.')
     parser.add_argument('--secrets', default=CLIENT_SECRETS_JSON, required=False,
-                        help='Google Service account json file.')
+                        help='Google Service Account json file.')
     parser.add_argument('--sheet-id', required=True,
                         help='Google Sheet doc Id. Google Sheet document is visible '
                              'if created by Google API service account '
